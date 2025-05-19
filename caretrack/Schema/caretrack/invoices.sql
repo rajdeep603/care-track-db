@@ -5,6 +5,7 @@ CREATE TABLE
         qty INT NOT NULL,
         unit_price DECIMAL(10, 2) NOT NULL,
         total_price DECIMAL(10, 2) NOT NULL,
+        invoice_status_pl_id INT NOT NULL REFERENCES master.picklist(record_id),
         invoice_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,        
         is_active BOOLEAN DEFAULT true,
         description TEXT,
