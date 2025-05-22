@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS caretrack.address (
     updated_by INT,
     update_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT REFERENCES caretrack.users (record_id),
-    is_primary BOOLEAN DEFAULT false
+    is_primary BOOLEAN DEFAULT false, 
+    parent_id INT,
+    parent_entity_type_pl_id INT REFERENCES master.picklist(record_id)
 );
 
