@@ -37,9 +37,9 @@ CREATE TABLE IF NOT EXISTS caretrack.cases (
     insert_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_by INT,
     update_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    comments TEXT,
-    severity_pl_id INT REFERENCES master.picklist(record_id),
+    comments TEXT
 );
 
-
+alter table caretrack.cases
+    add column if not exists zone_pl_id int REFERENCES master.picklist(record_id);
 
