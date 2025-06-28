@@ -11,3 +11,8 @@ CREATE TABLE IF NOT EXISTS caretrack.company_employees (
     comments TEXT,
     UNIQUE (user_id, company_id, is_primary) 
 );
+
+alter table caretrack.company_employees
+    add column if not exists login_start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+alter table caretrack.company_employees
+    add column if not exists login_end_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP;    

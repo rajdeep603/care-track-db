@@ -16,3 +16,6 @@ CREATE TABLE
         update_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         comments TEXT
     );
+
+    alter table caretrack.users
+        add column if not exists is_login_required int REFERENCES master.picklist(record_id);
