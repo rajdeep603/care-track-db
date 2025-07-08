@@ -1,8 +1,16 @@
 CREATE TABLE IF NOT EXISTS caretrack.cases (
     record_id SERIAL PRIMARY KEY,
-    company_id INT REFERENCES caretrack.companies (record_id);
+    company_id INT REFERENCES caretrack.companies (record_id),
     benificiary_salutation_pl_id INT REFERENCES master.picklist(record_id),
     benificiary_first_name VARCHAR(250) NOT NULL,
+    hospital_id INT REFERENCES master.hospitals (record_id),
+    case_file_type_pl_id INT REFERENCES master.picklist(record_id),
+    case_status_pl_id INT REFERENCES master.picklist(record_id),
+    country_code_pl_id INT REFERENCES master.picklist(record_id),
+    state_pl_id INT REFERENCES master.picklist(record_id),
+    country_pl_id INT REFERENCES master.picklist(record_id),
+    severity_pl_id INT REFERENCES master.picklist(record_id),
+    service_pl_id INT REFERENCES master.picklist(record_id),
     benificiary_last_name VARCHAR(250) NOT NULL,
     benificiary_maiden_name VARCHAR(250),
     benificiary_contact_title VARCHAR(250),
@@ -42,4 +50,7 @@ CREATE TABLE IF NOT EXISTS caretrack.cases (
 
 alter table caretrack.cases
     add column if not exists zone_pl_id int REFERENCES master.picklist(record_id);
+
+alter table caretrack.cases
+ drop column if exists hospital_id;    
 
