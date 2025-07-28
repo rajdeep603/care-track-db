@@ -43,3 +43,15 @@ CREATE TABLE IF NOT EXISTS caretrack.cases (
 alter table caretrack.cases
     add column if not exists zone_pl_id int REFERENCES master.picklist(record_id);
 
+
+alter table caretrack.cases
+    add column if not exists service_pl_id int REFERENCES master.picklist(record_id);
+
+
+
+ALTER TABLE caretrack.cases
+    ALTER COLUMN principal_id DROP NOT NULL,
+    ALTER COLUMN principal_branch_id DROP NOT NULL,
+    ALTER COLUMN principal_ref DROP NOT NULL,
+    ALTER COLUMN case_state_pl_id DROP NOT NULL,
+    ALTER COLUMN issue_description DROP NOT NULL;

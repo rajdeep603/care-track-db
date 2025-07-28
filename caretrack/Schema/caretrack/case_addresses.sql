@@ -24,4 +24,7 @@ CREATE TABLE IF NOT EXISTS caretrack.case_addresses (
     is_primary BOOLEAN DEFAULT false
 );
 
+ALTER TABLE caretrack.case_addresses
+ADD COLUMN IF NOT EXISTS permanent_state VARCHAR(255)
+
 

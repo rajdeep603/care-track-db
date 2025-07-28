@@ -13,3 +13,8 @@ CREATE TABLE IF NOT EXISTS caretrack.cases_to_do_list(
     update_date_time TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
     comments TEXT
 );
+
+alter table caretrack.cases_to_do_list
+add column if not exists start_date TIMESTAMP(6),
+add column if not exists end_date TIMESTAMP(6);
+
