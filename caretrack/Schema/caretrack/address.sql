@@ -48,5 +48,10 @@ alter table caretrack.address
 alter table caretrack.address
     add column if not exists longitude Text;
 
-    Alter table caretrack.address
-add column if not exists country_text Text;
+alter table caretrack.address
+    alter column country_pl_id drop not null;
+
+alter table caretrack.address
+    add column if not exists country_text Text;
+
+

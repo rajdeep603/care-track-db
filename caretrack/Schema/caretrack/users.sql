@@ -10,7 +10,7 @@ CREATE TABLE
         description TEXT,
         user_image TEXT,
         is_deleted BOOLEAN DEFAULT false,
-        inserted_by INT,
+        inserted_by INT REFERENCES caretrack.users (record_id),
         insert_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_by INT,
         update_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
