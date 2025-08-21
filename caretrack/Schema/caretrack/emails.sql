@@ -28,7 +28,8 @@ ADD COLUMN IF NOT EXISTS original_date TIMESTAMP,                    -- Date of 
 ADD COLUMN IF NOT EXISTS last_reply_date TIMESTAMP DEFAULT NOW(),    -- Last reply in this conversation
 ADD COLUMN IF NOT EXISTS is_sent BOOLEAN DEFAULT FALSE,
 ADD COLUMN IF NOT EXISTS cc_email TEXT,
-ADD COLUMN IF NOT EXISTS bcc_email TEXT;
+ADD COLUMN IF NOT EXISTS bcc_email TEXT,
+ADD COLUMN IF NOT EXISTS is_read TEXT DEFAULT 'false';         -- Read status (true/false);
 
 
 -- Create indexes
