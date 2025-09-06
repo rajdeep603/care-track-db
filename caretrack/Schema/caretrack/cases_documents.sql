@@ -14,3 +14,9 @@ CREATE TABLE
         comments TEXT
     );
 
+    alter table caretrack.cases_documents
+    add if not exists is_template BOOLEAN DEFAULT false;
+
+    alter table caretrack.cases_documents
+    add if not exists document_template_id INT REFERENCES master.document_templates (record_id);
+

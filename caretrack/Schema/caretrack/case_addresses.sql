@@ -5,14 +5,12 @@ CREATE TABLE IF NOT EXISTS caretrack.case_addresses (
     present_street VARCHAR(255),
     present_building VARCHAR(255),
     present_city VARCHAR(255),
-    present_state_pl_id INT REFERENCES master.picklist(record_id),
     present_country_pl_id INT REFERENCES master.picklist(record_id),
     present_postal_code VARCHAR(20),
     prsent_full_address TEXT,
     permanent_street VARCHAR(255),
     permanent_building VARCHAR(255),
     permanent_city VARCHAR(255),
-    permanent_state_pl_id INT REFERENCES master.picklist(record_id),
     permanent_country_pl_id INT REFERENCES master.picklist(record_id),
     permanent_postal_code VARCHAR(20),
     permanent_full_address TEXT,
@@ -24,7 +22,17 @@ CREATE TABLE IF NOT EXISTS caretrack.case_addresses (
     is_primary BOOLEAN DEFAULT false
 );
 
-ALTER TABLE caretrack.case_addresses
-ADD COLUMN IF NOT EXISTS permanent_state VARCHAR(255)
+alter table caretrack.case_addresses
+    drop column if exists permanent_state_pl_id;
+
+
+alter table caretrack.case_addresses
+    add column if not exists permanent_state Text; 
+
+alter table caretrack.case_addresses
+    drop column if exists present_state_pl_id;
+
+alter table caretrack.case_addresses
+    add column if not exists present_state Text;           
 
 

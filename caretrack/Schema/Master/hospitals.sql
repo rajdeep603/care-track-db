@@ -33,5 +33,5 @@ alter table master.hospitals
     ALTER TABLE master.hospitals
 ALTER COLUMN ratings TYPE DECIMAL(10, 2);
 
-ALTER TABLE master.hospitals
-add column if not exists hospital_type_pl_id int REFERENCES master.picklist(record_id);
+alter table master.hospitals
+    add column if not exists hospital_type_pl_id int references master.picklist(record_id);

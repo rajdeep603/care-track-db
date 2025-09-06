@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS caretrack.principals (
 );
 
 alter table caretrack.principals
-add column if not exists billing_email VARCHAR(250);
+    add column if not exists billing_email TEXT;
 
 alter table caretrack.principals
-add column if not exists network_manager_email VARCHAR(250);
+    add column if not exists network_manager_email TEXT;    

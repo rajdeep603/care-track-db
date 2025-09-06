@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS caretrack.cases_to_do_list(
 );
 
 alter table caretrack.cases_to_do_list
-add column if not exists start_date TIMESTAMP(6),
-add column if not exists end_date TIMESTAMP(6);
+    add column if not exists start_date TIMESTAMP(6);
 
+alter table caretrack.cases_to_do_list
+    add column if not exists end_date TIMESTAMP(6);    
