@@ -15,8 +15,10 @@ CREATE TABLE IF NOT EXISTS caretrack.companies (
     insert_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_by INT,
     update_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    comments TEXT,
+    comments TEXT
 );
+ALTER TABLE caretrack.companies
+    ADD COLUMN IF NOT EXISTS active_licenses INT DEFAULT 0;
 
 
 

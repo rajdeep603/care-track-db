@@ -10,3 +10,9 @@ CREATE TABLE
         updated_by INT,
         update_date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
+
+    Alter table master.picklist_type
+        add column if not exists isDefault BOOLEAN DEFAULT true;
+
+    Alter table master.picklist_type
+        add column if not exists company_id INT REFERENCES caretrack.companies(record_id);

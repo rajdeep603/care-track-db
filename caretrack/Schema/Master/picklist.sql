@@ -18,3 +18,10 @@ CREATE TABLE IF NOT EXISTS master.picklist (
     CONSTRAINT fk_picklist_type FOREIGN KEY (picklist_type_id) REFERENCES master.picklist_type (record_id),
     CONSTRAINT fk_parent_id FOREIGN KEY (parent_id) REFERENCES master.picklist (record_id)
 );
+
+
+    Alter table master.picklist
+        add column if not exists isDefault BOOLEAN DEFAULT true;
+
+    Alter table master.picklist
+        add column if not exists company_id INT REFERENCES caretrack.companies(record_id);
