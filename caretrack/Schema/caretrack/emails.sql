@@ -39,6 +39,12 @@ CREATE INDEX IF NOT EXISTS idx_emails_parent_email_id ON caretrack.emails(parent
 CREATE INDEX IF NOT EXISTS idx_emails_conversation_subject ON caretrack.emails(conversation_subject);
 CREATE INDEX IF NOT EXISTS idx_emails_reply_type ON caretrack.emails(reply_type);
 
+ALTER TABLE caretrack.emails
+ADD COLUMN IF NOT EXISTS nylas_email_configuration_id INT REFERENCES caretrack.nylas_email_configuration(record_id);
+
+ALTER TABLE caretrack.emails
+ADD COLUMN IF NOT EXISTS reply_to_message_id INT REFERENCES caretrack.emails(record_id);
+
 -- Add foreign key constraint (remove IF NOT EXISTS)
 -- ALTER TABLE caretrack.emails 
 -- ADD CONSTRAINT IF NOT EXISTS fk_emails_parent FOREIGN KEY (parent_email_id) REFERENCES caretrack.emails(record_id);

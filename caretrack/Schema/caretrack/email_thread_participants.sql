@@ -22,3 +22,12 @@ UNIQUE (thread_id, email_address, participant_type);
 CREATE INDEX IF NOT EXISTS idx_thread_participants_thread_id ON caretrack.email_thread_participants(thread_id);
 CREATE INDEX IF NOT EXISTS idx_thread_participants_email ON caretrack.email_thread_participants(email_address);
 CREATE INDEX IF NOT EXISTS idx_thread_participants_type ON caretrack.email_thread_participants(participant_type);
+
+
+ALTER TABLE caretrack.email_thread_participants
+ADD COLUMN IF NOT EXISTS reply_to_message_id INT REFERENCES caretrack.emails(record_id);
+
+
+ALTER TABLE caretrack.email_thread_participants
+ADD COLUMN IF NOT EXISTS root_message_id INT REFERENCES caretrack.emails(record_id);
+
