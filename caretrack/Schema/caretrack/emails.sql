@@ -45,6 +45,10 @@ ADD COLUMN IF NOT EXISTS nylas_email_configuration_id INT REFERENCES caretrack.n
 ALTER TABLE caretrack.emails
 ADD COLUMN IF NOT EXISTS reply_to_message_id INT REFERENCES caretrack.emails(record_id);
 
+
+ALTER TABLE caretrack.emails
+ADD COLUMN IF NOT EXISTS reply_to_email_id INT REFERENCES caretrack.emails(record_id);
+
 -- Add foreign key constraint (remove IF NOT EXISTS)
 -- ALTER TABLE caretrack.emails 
 -- ADD CONSTRAINT IF NOT EXISTS fk_emails_parent FOREIGN KEY (parent_email_id) REFERENCES caretrack.emails(record_id);

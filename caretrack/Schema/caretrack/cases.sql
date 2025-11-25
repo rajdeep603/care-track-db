@@ -55,3 +55,8 @@ alter table caretrack.cases
 alter table caretrack.cases
  drop column if exists hospital_id;    
 
+alter table caretrack.cases
+    add column if not exists benificiary_alternate_contact_country_code VARCHAR(10),
+    add column if not exists benificiary_contact_country_code VARCHAR(10);
+
+
