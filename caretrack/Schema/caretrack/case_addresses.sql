@@ -32,6 +32,25 @@ alter table caretrack.case_addresses
     drop column if exists present_state_pl_id;
 
 alter table caretrack.case_addresses
-    add column if not exists present_state Text;           
+    add column if not exists present_state Text;   
+
+
+alter table caretrack.case_addresses
+    add column if not exists country_text Text;
+
+
+alter table caretrack.case_addresses
+    drop column if exists present_country_pl_id;
+
+alter table caretrack.case_addresses
+    drop column if exists permanent_country_pl_id;
+
+alter table caretrack.case_addresses
+    add column if not exists present_country Text;    
+
+alter table caretrack.case_addresses
+    add column if not exists permanent_country Text;
+
+
 
 
