@@ -20,6 +20,9 @@ CREATE TABLE IF NOT EXISTS caretrack.companies (
 ALTER TABLE caretrack.companies
     ADD COLUMN IF NOT EXISTS active_licenses INT DEFAULT 0;
 
+ALTER TABLE IF EXISTS caretrack.companies
+    ADD COLUMN IF NOT EXISTS alert_email VARCHAR(250);
+
 
 
 

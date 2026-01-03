@@ -12,4 +12,9 @@ CREATE TABLE IF NOT EXISTS caretrack.case_provider_charges(
     update_date_time TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
     comments TEXT
 );
+
+ALTER TABLE IF EXISTS caretrack.case_provider_charges
+    DROP COLUMN IF EXISTS service,
+    ADD COLUMN IF NOT EXISTS service_pl_id INT REFERENCES master.picklist(record_id),
+    ADD COLUMN IF NOT EXISTS currency_pl_id INT REFERENCES master.picklist(record_id);
  
